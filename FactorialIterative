@@ -1,0 +1,16 @@
+public class FactorialIterative {
+
+    public static void main(String[] args) {
+        // Input number
+        int number = 5;  // You can change this value to test with different numbers
+
+        // Calculate factorial
+        long factorial = 1;
+        for (int i = 1; i <= number; i++) {
+            factorial *= i;
+        }
+
+        // Print the factorial
+        System.out.println("Factorial of " + number + " is: " + factorial);
+    }
+}
