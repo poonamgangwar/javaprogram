@@ -1,17 +1,24 @@
+class UnderageException extends Exception {
+    public UnderageException(String message) {
+        super(message);
+    }
+}
+
 public class Main {
     public static void main(String[] args) {
+        int age = 15;
         try {
-            divideNumbers(10, 0);
-        } catch (ArithmeticException e) {
+            checkAge(age);
+        } catch (UnderageException e) {
             System.out.println("Exception caught: " + e.getMessage());
         }
     }
 
-    public static void divideNumbers(int a, int b) throws ArithmeticException {
-        if (b == 0) {
-            throw new ArithmeticException("Cannot divide by zero");
+    public static void checkAge(int age) throws UnderageException {
+        if (age < 18) {
+            throw new UnderageException("You are underage!");
+        } else {
+            System.out.println("You are eligible!");
         }
-        int result = a / b;
-        System.out.println("Result: " + result);
     }
 }
