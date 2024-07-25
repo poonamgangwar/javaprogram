@@ -1,10 +1,17 @@
 public class Main {
     public static void main(String[] args) {
-        String str = null;
         try {
-            System.out.println(str.length()); // This will throw a NullPointerException
-        } catch (NullPointerException e) {
-            System.out.println("Exception Handling: String is null");
+            divideNumbers(10, 0);
+        } catch (ArithmeticException e) {
+            System.out.println("Exception caught: " + e.getMessage());
         }
+    }
+
+    public static void divideNumbers(int a, int b) throws ArithmeticException {
+        if (b == 0) {
+            throw new ArithmeticException("Cannot divide by zero");
+        }
+        int result = a / b;
+        System.out.println("Result: " + result);
     }
 }
