@@ -1,27 +1,32 @@
-import java.util.Scanner;
-public class Arrays {
-    public static void main(String args[]) {
-        Scanner sc = new Scanner(System.in);
-        int size = sc.nextInt();
-        int numbers[] = new int[size];
+  import java.util.*;
 
 
-        //input
-        for (int i = 0; i < size; i++) {
-            numbers[i] = sc.nextInt();
-        }
+    public class Arrays {
+        public static void main(String args[]) {
+            Scanner sc = new Scanner(System.in);
+            int size = sc.nextInt();
+            int numbers[] = new int[size];
 
 
-        int max = Integer.MIN_VALUE;
-        int min = Integer.MAX_VALUE;
-
-        for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] < min) {
-                min = numbers[i];
+            //input
+            for(int i=0; i<size; i++) {
+                numbers[i] = sc.nextInt();
             }
-            if (numbers[i] > max) {
-                max = numbers[i];
+
+
+            boolean isAscending = true;
+            for(int i=0; i<numbers.length-1; i++) { // NOTICE numbers.length - 1 as termination condition
+                if(numbers[i] > numbers[i+1]) { // This is the condition for descending order
+                    isAscending = false;
+                }
             }
+
+
+            if(isAscending) {
+                System.out.println("The array is sorted in ascending order");
+            } else {
+                System.out.println("The array is not sorted in ascending order");
+            }
+
         }
     }
-}
